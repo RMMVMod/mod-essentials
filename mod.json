@@ -1,0 +1,8 @@
+{
+  "name": "essentials",
+  "version": "1.0.0",
+  "description": "Essential mod for all other mods",
+  "dependencies": {},
+  "author": "orzFly",
+  "homepage": "https://github.com/orzFly/RMMVMod"
+}
