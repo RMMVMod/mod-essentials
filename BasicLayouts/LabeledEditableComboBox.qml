@@ -10,8 +10,10 @@ Labeler {
     property alias model: item.model
     property alias currentIndex: item.currentIndex
     property alias currentText: item.currentText
-    property alias editText: item.editText
     property alias count: item.count
+
+    property alias editText: item.editText
+    property alias textRole: item.textRole
 
     control: item
 
@@ -24,6 +26,6 @@ Labeler {
     }
 
     function select(text) {
-        currentIndex = item.find(text);
+        editText = text;
     }
 }
