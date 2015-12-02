@@ -11,6 +11,7 @@ var readLocalFile = function(name) {
 ;[
   "BasicControls/EditableComboBox.qml.js",
   "BasicLayouts/LabeledEditableComboBox.qml",
+  "Controls/DialogAddon.qml"
 ].forEach(function(i) {
   if (path.extname(i) == ".js" && path.extname(path.basename(i, ".js")) == ".qml") {
     require("./" + i)
