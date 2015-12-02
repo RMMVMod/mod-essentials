@@ -7,7 +7,7 @@ var readLocalFile = function(name) {
   return fs.readFileSync(path.join(__dirname, name))
 }
 
-
+// Add Essential GUI Components
 ;[
   "BasicControls/EditableComboBox.qml.js",
   "BasicLayouts/LabeledEditableComboBox.qml",
@@ -19,3 +19,17 @@ var readLocalFile = function(name) {
     ModAPI.add(i, readLocalFile(i))
   }
 })
+
+var Essentials = {}
+
+Essentials.addSingleton = function(name, content) {
+  ModAPI.add("Singletons/" + name + ".qml", content)
+
+  var qmldir = ModAPI.get("Singletons/qmldir")
+  qmldir += "\n"
+  qmldir += "singleton " + name + " " + name + ".qml\n"
+  ModAPI.update("Singletons/qmldir", qmldir)
+}
+
+
+module.exports = Essentials
