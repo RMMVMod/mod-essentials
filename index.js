@@ -22,14 +22,4 @@ var readLocalFile = function(name) {
 
 var Essentials = {}
 
-Essentials.addSingleton = function(name, content) {
-  ModAPI.add("Singletons/" + name + ".qml", content)
-
-  var qmldir = ModAPI.get("Singletons/qmldir")
-  qmldir += "\n"
-  qmldir += "singleton " + name + " " + name + ".qml\n"
-  ModAPI.update("Singletons/qmldir", qmldir)
-}
-
-
 module.exports = Essentials
