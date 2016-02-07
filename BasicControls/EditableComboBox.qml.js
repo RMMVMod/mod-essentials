@@ -1,19 +1,19 @@
 var ModAPI = require('modapi')
 var _ = require('lodash')
-var qml = ModAPI.QMLFile("BasicControls/ComboBox.qml")
+var qml = ModAPI.QMLFileV2("BasicControls/ComboBox.qml")
 
 var node, objects, obj
 
-node = qml.root.node
-node.object("Keys.onLeftPressed", null)
-node.object("Keys.onRightPressed", null)
-node.object("editable", "true")
+qml.root
+  .remove("Keys.onLeftPressed")
+  .remove("Keys.onRightPressed")
+  .set("editable", "true")
 
-node = qml.getObjectById("mouseArea").node
-node.object("anchors.fill", null)
-node.object("anchors.right", "parent.right")
-node.object("anchors.top", "parent.top")
-node.object("anchors.bottom", "parent.bottom")
-node.object("width", "20")
+qml.root.getObjectById("mouseArea")
+  .remove("anchors.fill")
+  .set("anchors.right", "parent.right").end()
+  .set("anchors.top", "parent.top").end()
+  .set("anchors.bottom", "parent.bottom").end()
+  .set("width", "20").end()
 
-ModAPI.add("BasicControls/EditableComboBox.qml", qml.code)
+ModAPI.add("BasicControls/EditableComboBox.qml", qml.GenCode())
